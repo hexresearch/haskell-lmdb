@@ -145,8 +145,6 @@ import Data.Function (on)
 import Data.Maybe (isNothing)
 import Data.IORef
 
-#let alignment t = "%lu", (unsigned long)offsetof(struct {char x__; t (y__); }, y__)
-
 -- FFI
 --  'safe': higher overhead, thread juggling, allows callbacks into Haskell
 --  'unsafe': lower overhead, reduced concurrency, no callbacks into Haskell
@@ -263,7 +261,7 @@ lmdb_version = LMDB_Version
     { v_major = #const MDB_VERSION_MAJOR
     , v_minor = #const MDB_VERSION_MINOR
     , v_patch = #const MDB_VERSION_PATCH
-    , v_text  = #const_str MDB_VERSION_STRING
+    , v_text  = ""
     }
 
 
